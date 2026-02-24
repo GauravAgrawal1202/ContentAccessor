@@ -1,10 +1,4 @@
-import React from 'react';
 import styles from './Navbar.module.css';
-
-type Props = {
-  loggedIn: boolean;
-  onLogout: () => void;
-};
 
 export default function Navbar() {
   return (
@@ -17,11 +11,11 @@ export default function Navbar() {
       </div>
 
       <div className={styles.right}>
-          <button 
-            className={styles.logoutBtn}
-          >
-            <img src="http://122.184.75.199:8501/assets/miimansa-DEaZChlN.svg" alt="" />
-          </button>
+        <button
+          className={styles.logoutBtn}
+        >
+          <img src="http://122.184.75.199:8501/assets/miimansa-DEaZChlN.svg" alt="" />
+        </button>
       </div>
     </nav>
   );

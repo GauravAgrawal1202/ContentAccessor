@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Login.module.css';
 
 type Props = {
@@ -12,10 +12,7 @@ interface Credential {
 
 // You can move this to a separate file later (or fetch from API)
 const VALID_CREDENTIALS: Credential[] = [
-  { email: 'user@example.com',     password: 'Password123' },
-  { email: 'admin@company.com',    password: 'Admin2025!' },
-  { email: 'kartik@work.in',       password: 'MySecurePass456' },
-  { email: 'test.user@gmail.com',  password: 'test1234' },
+  { email: 'user@miimansa.com', password: 'user.miimansa' }
 ];
 
 export default function Login({ onLogin }: Props) {
@@ -42,7 +39,7 @@ export default function Login({ onLogin }: Props) {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={submit}>
         <h2>Sign in</h2>
-        
+
         <label>
           Email
           <input

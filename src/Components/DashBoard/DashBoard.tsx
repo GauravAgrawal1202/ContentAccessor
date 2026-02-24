@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const dummyLinks = [
   "https://www.youtube.com/watch?v=Kl8dINgeQCY",
-  "https://www.youtube.com/watch?v=Kl8dINgeQCY",
+  "https://www.youtube.com/watch?v=n6_N9yzFjo8",
 ];
 
 const getEmbedUrl = (url: string) => {
@@ -29,19 +29,6 @@ const YoutubeColumn: React.FC = () => {
     return () => document.removeEventListener("contextmenu", blockContext);
   }, []);
 
-  const sendCommand = (index: number, func: string) => {
-    const iframe = refs.current[index];
-    if (!iframe || !ready.current[index]) return;
-
-    iframe.contentWindow?.postMessage(
-      JSON.stringify({
-        event: "command",
-        func,
-        args: [],
-      }),
-      "*"
-    );
-  };
 
   const handleLoad = (index: number) => {
     ready.current[index] = true;
@@ -54,7 +41,9 @@ const YoutubeColumn: React.FC = () => {
       {dummyLinks.map((link, i) => (
         <div key={i} style={styles.videoWrapper}>
           <iframe
-            ref={(el) => (refs.current[i] = el)}
+            ref={(el) => {
+              refs.current[i] = el;
+            }}
             src={getEmbedUrl(link)}
             title={`video-${i}`}
             style={styles.iframe}
